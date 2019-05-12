@@ -1,0 +1,26 @@
+  {% extends "core/base.html" %}
+  {% load static %}
+  {% block titulo %} Portada {% endblock %}
+  {% block bgimagen %}{% static 'core/img/home-bg.jpg' %}{% endblock %}
+  
+  {% block header %}
+    <h1>Erickson Quispe</h1>
+    <span class="subheading">Ingeniero Sistemas</span>
+  {% endblock %}
+
+
+  {% block content %}
+  <div class="container">
+    {% for project in projects %}
+    <div class="card mb-3">
+        <img class="card-img-top" src="{{project.image.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description}}</p>
+          <p class="card-text"><small class="text-muted">{{project.create}}</small></p>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% endblock content %}
